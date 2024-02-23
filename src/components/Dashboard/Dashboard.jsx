@@ -4,7 +4,7 @@ import Productpart from "./Productpart";
 
 const Dashboard = () => {
   return (
-    <div className=" grid lg:grid-cols-2 grid-cols-1">
+    <div className=" grid lg:grid-cols-2 grid-cols-1 justify-between">
       <Chartpart />
       <Productpart />
     </div>

@@ -1,13 +1,15 @@
 import React from "react";
 import Navbar from "./Cartpart/Navbar";
+import Stevejob from "./Cartpart/Stevejob";
 
 const Chartpart = () => {
   return (
     <div>
       <div className="drawer">
         <input id="menuBar" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content">
+        <div className="drawer-content flex flex-col gap-3">
           <Navbar />
+          <Stevejob/>
          
         </div>
         <div className="drawer-side">
