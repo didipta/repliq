@@ -14,5 +14,25 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        website: {
+          primary: "#5C6AC4",
+          secondary: "#EEF0F9",
+          accent: "#37cdbe",
+          neutral: "#D8DCDF",
+          "base-100": "#ffffff",
+        },
+      },
+    ],
+  },
+  theme: {
+    extend: {
+      animation: {
+        bounce: "bounce 1s 3 ease-in-out",
+      },
+    },
+  },
 };
