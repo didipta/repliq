@@ -47,7 +47,7 @@ const Cartitems = ({ cartitems, updateCart }) => {
           ))}
         </tbody>
       </table>
-      {cartitems.length > 0 ? (
+      {cartitems.length > 0 && (
         <div className=" w-96  float-end mt-10">
           {Object.keys(totalcount).map((key) => {
             return (
@@ -66,10 +66,6 @@ const Cartitems = ({ cartitems, updateCart }) => {
             );
           })}
         </div>
-      ) : (
-        <p className="text-neutral font-semibold text-lg text-center">
-          Your cart is empty
-        </p>
       )}
     </div>
   );
