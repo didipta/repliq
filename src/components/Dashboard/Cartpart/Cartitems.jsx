@@ -45,6 +45,57 @@ const Cartitems = ({ cartitems, updateCart }) => {
           ))}
         </tbody>
       </table>
+      {cartitems.length > 0 ? (
+        <div className=" w-96  float-end mt-10">
+          <div className="flex justify-between items-center p-2 border-b-2">
+            <h2 className=" text-neutral font-semibold text-lg">Sub Total</h2>
+            <h2 className=" font-bold text-lg">
+              {"$"}
+              {cartitems.reduce(
+                (acc, item) => acc + item.quantity * item.product_price,
+                0
+              )}
+            </h2>
+          </div>
+          <div className="flex justify-between items-center p-2 border-b-2">
+            <h2 className=" text-neutral font-semibold text-lg">TAX</h2>
+            <h2 className="  font-bold text-lg">
+              {"$"}
+              {(
+                cartitems.reduce(
+                  (acc, item) => acc + item.quantity * item.product_price,
+                  0
+                ) * 0.05
+              ).toFixed(2)}
+            </h2>
+          </div>
+          <div className="flex justify-between items-center p-2 border-b-2">
+            <h2 className=" text-neutral font-semibold text-lg">Shipping</h2>
+            <h2 className=" font-bold text-lg">
+              {"$"}
+              5.00
+            </h2>
+          </div>
+          <div className="flex justify-between items-center p-2 border-b-2">
+            <h2 className=" text-neutral font-semibold text-lg">
+              Discount on Cart
+            </h2>
+            <h2 className=" font-bold text-lg">
+              {"$"}
+              {(
+                cartitems.reduce(
+                  (acc, item) => acc + item.quantity * item.product_price,
+                  0
+                ) * 0.1
+              ).toFixed(2)}
+            </h2>
+          </div>
+        </div>
+      ) : (
+        <p className="text-neutral font-semibold text-lg text-center">
+          Your cart is empty
+        </p>
+      )}
     </div>
   );
 };
