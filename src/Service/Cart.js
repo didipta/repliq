@@ -39,3 +39,42 @@ export const deletefromcart = (product, setcartitems, cartitems) => {
     cartitems.filter((item) => item.product_id !== product.product_id)
   );
 };
+
+export const totalamount = (cartitems) => {
+  return {
+    subtotal: cartitems.reduce(
+      (acc, item) => acc + item.quantity * item.product_price,
+      0
+    ),
+    tax: (
+      cartitems.reduce(
+        (acc, item) => acc + item.quantity * item.product_price,
+        0
+      ) * 0.005
+    ).toFixed(2),
+    shipping: 5.0,
+    discount: (
+      cartitems.reduce(
+        (acc, item) => acc + item.quantity * item.product_price,
+        0
+      ) * 0.1
+    ).toFixed(2),
+    total: (
+      cartitems.reduce(
+        (acc, item) => acc + item.quantity * item.product_price,
+        0
+      ) +
+      (cartitems.reduce(
+        (acc, item) => acc + item.quantity * item.product_price,
+        0
+      ) *
+        0.005 +
+        5.0 -
+        cartitems.reduce(
+          (acc, item) => acc + item.quantity * item.product_price,
+          0
+        ) *
+          0.1)
+    ).toFixed(2),
+  };
+};
