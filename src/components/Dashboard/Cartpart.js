@@ -3,7 +3,7 @@ import Navbar from "./Cartpart/Navbar";
 import Stevejob from "./Cartpart/Stevejob";
 import Cartitems from "./Cartpart/Cartitems";
 
-const Chartpart = ({ cartitems }) => {
+const Chartpart = ({ cartitems, updateCart }) => {
   return (
     <div className=" border-0 border-r-2 h-screen overflow-y-auto z-10">
       <div className="drawer">
@@ -11,7 +11,7 @@ const Chartpart = ({ cartitems }) => {
         <div className="drawer-content flex flex-col gap-3">
           <Navbar />
           <Stevejob />
-          <Cartitems cartitems={cartitems} />
+          <Cartitems cartitems={cartitems} updateCart={updateCart} />
         </div>
         <div className="drawer-side">
           <label
