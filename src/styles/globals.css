@@ -5,3 +5,16 @@
 .container {
   @apply max-w-[1600px]  mx-auto 2xl:scale-95 lg:scale-90;
 }
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 1px;
+  box-shadow: inset 1px 0px 0px rgba(245, 243, 243, 0.947);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  @apply bg-primary;
+}

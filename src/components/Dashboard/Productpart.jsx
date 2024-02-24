@@ -1,8 +1,9 @@
 import React from "react";
+import Productlist from "./Productpart/Productlist";
 
 const Productpart = () => {
   return (
-    <div>
+    <div className=" h-screen overflow-y-auto">
       <div className="drawer drawer-end">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
@@ -13,6 +14,8 @@ const Productpart = () => {
           >
             Open drawer
           </label>
+
+          <Productlist/>
         </div>
         <div className="drawer-side">
           <label
