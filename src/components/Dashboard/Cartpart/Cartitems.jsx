@@ -1,14 +1,18 @@
 import { totalamount } from "@/Service/Cart";
 import React from "react";
 
-const Cartitems = ({ cartitems, updateCart }) => {
-  const totalcount = totalamount(cartitems);
+const Cartitems = ({ cartitems, updateCart, totalcount }) => {
   return (
     <div className=" container p-2">
       <table className="table w-full border-2">
         <tbody>
           {cartitems.map((item) => (
             <tr key={item.id}>
+              <td>
+                <button>
+                  <i className="fa-solid fa-edit md:text-lg text-base text-gray-800"></i>
+                </button>
+              </td>
               <td className=" text-neutral font-semibold md:text-base text-sm">
                 {item.product_name}
               </td>

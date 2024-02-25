@@ -2,8 +2,9 @@ import React from "react";
 import Navbar from "./Cartpart/Navbar";
 import Stevejob from "./Cartpart/Stevejob";
 import Cartitems from "./Cartpart/Cartitems";
+import Bottomsection from "./Cartpart/Bottomsection";
 
-const Chartpart = ({ cartitems, updateCart }) => {
+const Chartpart = ({ cartitems, updateCart, totalcount }) => {
   return (
     <div className=" border-0 border-r-2 h-screen overflow-y-auto z-10">
       <div className="drawer">
@@ -11,7 +12,22 @@ const Chartpart = ({ cartitems, updateCart }) => {
         <div className="drawer-content flex flex-col gap-3">
           <Navbar />
           <Stevejob />
-          <Cartitems cartitems={cartitems} updateCart={updateCart} />
+          {cartitems.length > 0 ? (
+            <Cartitems
+              cartitems={cartitems}
+              updateCart={updateCart}
+              totalcount={totalcount}
+            />
+          ) : (
+            <div className="container p-2">
+              <h1 className="text-3xl font-semibold text-center text-neutral">
+                Your Cart is Empty
+              </h1>
+            </div>
+          )}
+          {cartitems.length > 0 && (
+            <Bottomsection cartitems={cartitems} totalcount={totalcount} />
+          )}
         </div>
         <div className="drawer-side">
           <label

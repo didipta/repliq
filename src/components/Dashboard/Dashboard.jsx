@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import Chartpart from "./Cartpart";
 import Productpart from "./Productpart";
-import { addttocart, deletefromcart, removefromcart } from "@/Service/Cart";
+import {
+  addttocart,
+  deletefromcart,
+  removefromcart,
+  totalamount,
+} from "@/Service/Cart";
 
 const Dashboard = () => {
   const [cartitems, setCartitems] = useState([]);
+  const totalcount = totalamount(cartitems);
 
   const addtocartproduct = (product) => {
     addttocart(product, setCartitems, cartitems);
@@ -22,7 +28,11 @@ const Dashboard = () => {
 
   return (
     <div className=" grid lg:grid-cols-2 grid-cols-1 justify-between">
-      <Chartpart cartitems={cartitems} updateCart={updateCart} />
+      <Chartpart
+        cartitems={cartitems}
+        updateCart={updateCart}
+        totalcount={totalcount}
+      />
       <Productpart addtocartproduct={addtocartproduct} />
     </div>
   );
