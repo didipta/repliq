@@ -7,10 +7,12 @@ import {
   removefromcart,
   totalamount,
 } from "@/Service/Cart";
+import Order from "./Order";
 
 const Dashboard = () => {
   const [cartitems, setCartitems] = useState([]);
   const totalcount = totalamount(cartitems);
+  const [payment, setPayment] = useState(false);
 
   const addtocartproduct = (product) => {
     addttocart(product, setCartitems, cartitems);
@@ -32,8 +34,13 @@ const Dashboard = () => {
         cartitems={cartitems}
         updateCart={updateCart}
         totalcount={totalcount}
+        setPayment={setPayment}
       />
-      <Productpart addtocartproduct={addtocartproduct} />
+      {payment ? (
+        <Order totalcount={totalcount} setPayment={setPayment}/>
+      ) : (
+        <Productpart addtocartproduct={addtocartproduct} />
+      )}
     </div>
   );
 };

@@ -25,7 +25,7 @@ const Productpart = ({ addtocartproduct }) => {
             <i class="fa-solid fa-barcode text-xl"></i>
           </div>
           <div className=" flex justify-between items-center gap-2 px-5 py-2">
-            <div className=" w-full grid md:grid-cols-4 grid-cols-3 justify-between gap-2 p-2 ">
+            <div className=" w-full grid grid-cols-4 justify-between gap-2 p-2 ">
               <button
                 onClick={() => setCategory([])}
                 className={`shadow-md  bg-white rounded-md cursor-pointer hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 ${
@@ -76,7 +76,7 @@ const Productpart = ({ addtocartproduct }) => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <div className="menu p-4 w-5/12 min-h-full bg-base-100 ">
+          <div className="menu p-4 lg:w-5/12 w-80 min-h-full bg-base-100 ">
             <div className="flex flex-wrap justify-start items-center gap-5 px-5 py-2">
               {categoryData.map((category) => {
                 return (

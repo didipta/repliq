@@ -3,8 +3,9 @@ import Navbar from "./Cartpart/Navbar";
 import Stevejob from "./Cartpart/Stevejob";
 import Cartitems from "./Cartpart/Cartitems";
 import Bottomsection from "./Cartpart/Bottomsection";
+import Link from "next/link";
 
-const Chartpart = ({ cartitems, updateCart, totalcount }) => {
+const Chartpart = ({ cartitems, updateCart, totalcount, setPayment }) => {
   return (
     <div className=" border-0 border-r-2 h-screen overflow-y-auto z-10">
       <div className="drawer">
@@ -26,7 +27,11 @@ const Chartpart = ({ cartitems, updateCart, totalcount }) => {
             </div>
           )}
           {cartitems.length > 0 && (
-            <Bottomsection cartitems={cartitems} totalcount={totalcount} />
+            <Bottomsection
+              cartitems={cartitems}
+              totalcount={totalcount}
+              setPayment={setPayment}
+            />
           )}
         </div>
         <div className="drawer-side">
@@ -36,12 +41,26 @@ const Chartpart = ({ cartitems, updateCart, totalcount }) => {
             className="drawer-overlay"
           ></label>
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-            {/* Sidebar content here */}
+            <h2 className="text-2xl font-bold text-center">Menu</h2>
             <li>
-              <a>Sidebar Item 1</a>
+              <a>
+                <i class="fa-solid fa-home"></i> Home
+              </a>
             </li>
             <li>
-              <a>Sidebar Item 2</a>
+              <a>
+                <i class="fa-solid fa-user"></i> Account
+              </a>
+            </li>
+            <li>
+              <a>
+                <i class="fa-solid fa-shopping-bag"></i> Orders
+              </a>
+            </li>
+            <li>
+              <a>
+                <i class="fa-solid fa-cog"></i> Settings
+              </a>
             </li>
           </ul>
         </div>

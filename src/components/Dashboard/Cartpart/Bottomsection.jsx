@@ -1,6 +1,6 @@
 import React from "react";
 
-const Bottomsection = ({ cartitems, totalcount }) => {
+const Bottomsection = ({ cartitems, totalcount, setPayment }) => {
   return (
     <div>
       <div className=" bg-secondary container p-2 rounded-md">
@@ -30,7 +30,10 @@ const Bottomsection = ({ cartitems, totalcount }) => {
         <button className=" w-full bg-secondary text-primary p-2 font-bold rounded-md">
           <i class="fa-solid fa-sack-dollar"></i> Discount
         </button>
-        <button className=" w-full bg-secondary text-primary p-2 font-bold rounded-md">
+        <button
+          className=" w-full bg-secondary text-primary p-2 font-bold rounded-md"
+          onClick={() => setPayment(true)}
+        >
           <i class="fa-solid fa-hand-holding-dollar"></i> Pay Now
         </button>
       </div>
