@@ -14,7 +14,7 @@ const Bottomsection = ({ cartitems, totalcount }) => {
               Total Amount
             </span>
             <span className=" text-primary text-lg font-bold">
-              {totalcount.total}
+              ${totalcount.total}
             </span>
           </p>
         </div>

@@ -1,11 +1,39 @@
 import { productData } from "@/components/ProjectDate/Productdata";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const Productlist = ({ addtocartproduct }) => {
+const Productlist = ({ addtocartproduct, categorys, search }) => {
+  const [productDatas, setProductData] = useState(productData);
+  useEffect(() => {
+    if (categorys.length === 0) {
+      setProductData(productData);
+    } else {
+      setProductData(
+        productData.filter((product) => product.category_id === categorys.id)
+      );
+    }
+  }, [categorys]);
+
+  useEffect(() => {
+    if (search === "") {
+      setProductData(productData);
+    } else {
+      setProductData(
+        productData.filter((product) =>
+          product.product_name.toLowerCase().includes(search.toLowerCase())
+        )
+      );
+    }
+  }, [search]);
+
   return (
     <div className=" grid md:grid-cols-4 grid-cols-3 justify-between gap-2 p-2 ">
-      {productData.map((product) => {
+      {productDatas.length === 0 && (
+        <div className="flex justify-center items-center h-full w-full">
+          <h2 className="text-lg text-neutral">No Product Found</h2>
+        </div>
+      )}
+      {productDatas.map((product) => {
         return (
           <div
             key={product.product_id}
