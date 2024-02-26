@@ -37,10 +37,11 @@ const Dashboard = () => {
         setPayment={setPayment}
       />
       {payment ? (
-        <Order totalcount={totalcount} setPayment={setPayment}/>
+        <Order totalcount={totalcount} setPayment={setPayment} />
       ) : (
         <Productpart addtocartproduct={addtocartproduct} />
       )}
+      
     </div>
   );
 };
